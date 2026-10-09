@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Spring Boot parent quản lý phiên bản thư viện và cấu hình build mặc định. -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.3.5</version>
+        <relativePath/>
+    </parent>
+
+    <!-- Định danh project; artifactId và version tạo tên file JAR trong target. -->
+    <groupId>com.example</groupId>
+    <artifactId>salary-management</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>salary-management</name>
+    <description>Employee salary management demo for IASF practical test</description>
+
+    <properties>
+        <!-- Biên dịch code theo phiên bản Java 17. -->
+        <java.version>17</java.version>
+    </properties>
+
+    <!-- Các thư viện Maven tự tải khi import/build project. -->
+    <dependencies>
+        <!-- JPA/Hibernate: ánh xạ entity và thao tác database qua Repository. -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <!-- Thymeleaf: tạo trang HTML từ template và dữ liệu trong Model. -->
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <!-- Validation: hỗ trợ Valid, NotBlank, Email và các ràng buộc nhập liệu. -->
+            <artifactId>spring-boot-starter-validation</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <!-- Spring MVC và Tomcat nhúng để nhận yêu cầu HTTP. -->
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <!-- Database H2; runtime nghĩa là dùng khi chạy, không cần để biên dịch code Java. -->
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <!-- Thư viện kiểm thử; scope test chỉ dùng cho code test. -->
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <!-- Đóng gói JAR chạy được bằng java -jar và hỗ trợ spring-boot:run. -->
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+</project>
